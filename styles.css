@@ -85,22 +85,22 @@ nav h1 {
     margin-bottom: 1.5em;
 }
 
-img {
+.floatFalafel img {
+    position: relative;
+    z-index: 1;
     width: 100px;
     height: 100px;
-    position: fixed;
-    animation-name: example;
+    animation-name: falafel;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
   }
   
-  @keyframes example {
+  @keyframes falafel {
     0% {
       transform: translate(-100%, 100%);
     }
     100% {
       transform: translate(0, 0);
-      filter: hue-rotate(180deg); /* Optional: Add a hue rotation effect */
     }
   }
