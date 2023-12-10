@@ -86,7 +86,7 @@ nav h1 {
 }
 
 .floatFalafel img {
-    position: relative;
+    position: absolute;
     z-index: 1;
     width: 100px;
     height: 100px;
@@ -97,10 +97,7 @@ nav h1 {
   }
   
   @keyframes falafel {
-    0% {
-      transform: translate(-100%, 100%);
-    }
-    100% {
-      transform: translate(0, 0);
+    from {top: 0px;}
+    to {top: 200px;}
     }
   }
