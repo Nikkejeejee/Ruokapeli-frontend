@@ -1,103 +1,126 @@
-@font-face {
-    font-family: 'LemonMilk_Reg';
-    src: url('fontit/LEMONMILK-Regular.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'LemonMilk_Med';
-    src: url('fontit/LEMONMILK-Medium.otf') format('opentype');
-}
-
-@font-face {
-    font-family: 'ComicLemon';
-    src: url('fontit/ComicLemon.ttf') format('opentype');
-}
-
-@font-face {
-    font-family: 'StarCartoon';
-    src: url('fontit/StarCartoon.ttf') format('opentype');
-}
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'poppins';
 }
 
 body {
-    margin: 0;
-    overflow: hidden;
+    background-image: url('img/skyown.jpg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #ffffff;
 }
 
-main .bg-vid {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
-
-@media (min-aspect-ratio: 16/9) {
-    .bg-vid{
-        width: 100%;
-        height: auto;
-    }
-}
-
-@media (max-aspect-ratio: 16/9) {
-    .bg-vid{
-        width: auto;
-        height: 100%;
-    }
-}
-
-main .container {
+.main-menu {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     position: relative;
+}
+
+.main-menu img {
+    position: absolute;
+}
+
+.otsikko {
+    margin-top: 8em;
+    z-index: 3;
+}
+
+.maapallo {
+    margin-top: 8em;
+    z-index: 1;
+    animation: levitate 3s infinite alternate ease-in-out;
+}
+
+@keyframes levitate {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+
+.lentokone {
+    margin-right: 25em;
+    margin-top: 15em;
+    z-index: 2;
+    opacity: 0;
+    animation: moveAirplane 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards;
+}
+@keyframes moveAirplane {
+    0% {
+        transform: translateX(-10%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.button-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    position: relative;
+    margin-top: 40em;
+    z-index: 4;
 }
 
-nav h1 {
-    font-family: Lemonmilk_reg, serif;
-    font-weight: 100px;
-    font-size: 4em;
-    transform: perspective(500px);
-}
-
-.buttons {
-    margin-top: 10em;
+.button-list {
+    list-style: none;
+    padding: 0;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
 }
 
-.buttons button {
-    font-family: StarCartoon, serif;
-    font-size: 2em;
-    margin-bottom: 1.5em;
+button {
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    transition: all 0.5s ease;
+    margin-bottom: 6em;
+    transform-origin: center;
+    transition: all 0.5s ease;
 }
 
-.floatFalafel img {
-    position: absolute;
-    z-index: 1;
-    width: 100px;
-    height: 100px;
-    animation-name: falafel;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-  }
-  
-  @keyframes falafel {
-    from {top: 0px;}
-    to {top: 200px;}
-    }
-  }
+.pelaa-button {
+    border: 2px solid #DE679D; /* Pink border */
+    background-color: rgba(255, 211, 211, 0.5);
+}
+
+.ohjeet-button {
+    border: 2px solid rgb(153 194 249); /* Blue border */
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.pelaa-button:hover {
+    transform: scale(1.3);
+    background-color: #DE679D;
+    box-shadow: rgb(222 103 157) 0px 7px 29px 0px;
+}
+
+.ohjeet-button:hover {
+    transform: scale(1.3);
+    background-color: rgb(153 194 249); 
+    box-shadow: rgb(153 194 249) 0px 7px 29px 0px;
+}
+
+button:active {
+    box-shadow: rgb(222 103 157) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+}
